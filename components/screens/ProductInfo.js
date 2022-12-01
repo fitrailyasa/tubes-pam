@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,25 +10,25 @@ import {
   Dimensions,
   Animated,
   ToastAndroid,
-} from 'react-native';
-import {COLOURS, Items} from '../database/Database';
-import Entypo from 'react-native-vector-icons/Entypo';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+} from "react-native";
+import { COLOURS, Items } from "../database/Database";
+import Entypo from "react-native-vector-icons/Entypo";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const ProductInfo = ({route, navigation}) => {
-  const {productID} = route.params;
+const ProductInfo = ({ route, navigation }) => {
+  const { productID } = route.params;
 
   const [product, setProduct] = useState({});
 
-  const width = Dimensions.get('window').width;
+  const width = Dimensions.get("window").width;
 
   const scrollX = new Animated.Value(0);
 
   let position = Animated.divide(scrollX, width);
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('focus', () => {
+    const unsubscribe = navigation.addListener("focus", () => {
       getDataFromDB();
     });
 
@@ -48,20 +48,20 @@ const ProductInfo = ({route, navigation}) => {
 
   //add to cart
 
-  const addToCart = async id => {
-    let itemArray = await AsyncStorage.getItem('cartItems');
+  const addToCart = async (id) => {
+    let itemArray = await AsyncStorage.getItem("cartItems");
     itemArray = JSON.parse(itemArray);
     if (itemArray) {
       let array = itemArray;
       array.push(id);
 
       try {
-        await AsyncStorage.setItem('cartItems', JSON.stringify(array));
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
         ToastAndroid.show(
-          'Item Added Successfully to cart',
-          ToastAndroid.SHORT,
+          "Item Added Successfully to cart",
+          ToastAndroid.SHORT
         );
-        navigation.navigate('Home');
+        navigation.navigate("Home");
       } catch (error) {
         return error;
       }
@@ -69,12 +69,12 @@ const ProductInfo = ({route, navigation}) => {
       let array = [];
       array.push(id);
       try {
-        await AsyncStorage.setItem('cartItems', JSON.stringify(array));
+        await AsyncStorage.setItem("cartItems", JSON.stringify(array));
         ToastAndroid.show(
-          'Item Added Successfully to cart',
-          ToastAndroid.SHORT,
+          "Item Added Successfully to cart",
+          ToastAndroid.SHORT
         );
-        navigation.navigate('Home');
+        navigation.navigate("Home");
       } catch (error) {
         return error;
       }
@@ -82,21 +82,22 @@ const ProductInfo = ({route, navigation}) => {
   };
 
   //product horizontal scroll product card
-  const renderProduct = ({item, index}) => {
+  const renderProduct = ({ item, index }) => {
     return (
       <View
         style={{
           width: width,
           height: 240,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Image
           source={item}
           style={{
-            width: '100%',
-            height: '100%',
-            resizeMode: 'contain',
+            width: "100%",
+            height: "100%",
+            resizeMode: "contain",
           }}
         />
       </View>
@@ -106,36 +107,36 @@ const ProductInfo = ({route, navigation}) => {
   return (
     <View
       style={{
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         backgroundColor: COLOURS.white,
-        position: 'relative',
-      }}>
-      <StatusBar
-        backgroundColor={COLOURS.backgroundLight}
-        barStyle="dark-content"
-      />
+        position: "relative",
+      }}
+    >
+      <StatusBar backgroundColor={COLOURS.white} barStyle="dark-content" />
       <ScrollView>
         <View
           style={{
-            width: '100%',
-            backgroundColor: COLOURS.backgroundLight,
+            width: "100%",
+            backgroundColor: COLOURS.white,
             borderBottomRightRadius: 20,
             borderBottomLeftRadius: 20,
-            position: 'relative',
-            justifyContent: 'center',
-            alignItems: 'center',
+            position: "relative",
+            justifyContent: "center",
+            alignItems: "center",
             marginBottom: 4,
-          }}>
+          }}
+        >
           <View
             style={{
-              width: '100%',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
+              width: "100%",
+              flexDirection: "row",
+              justifyContent: "space-between",
               paddingTop: 16,
               paddingLeft: 16,
-            }}>
-            <TouchableOpacity onPress={() => navigation.goBack('Home')}>
+            }}
+          >
+            <TouchableOpacity onPress={() => navigation.goBack("Home")}>
               <Entypo
                 name="chevron-left"
                 style={{
@@ -157,37 +158,39 @@ const ProductInfo = ({route, navigation}) => {
             snapToInterval={width}
             bounces={false}
             onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: scrollX}}}],
-              {useNativeDriver: false},
+              [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+              { useNativeDriver: false }
             )}
           />
           <View
             style={{
-              width: '100%',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
+              width: "100%",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
               marginBottom: 16,
               marginTop: 32,
-            }}>
+            }}
+          >
             {product.productImageList
               ? product.productImageList.map((data, index) => {
                   let opacity = position.interpolate({
                     inputRange: [index - 1, index, index + 1],
                     outputRange: [0.2, 1, 0.2],
-                    extrapolate: 'clamp',
+                    extrapolate: "clamp",
                   });
                   return (
                     <Animated.View
                       key={index}
                       style={{
-                        width: '16%',
+                        width: "16%",
                         height: 2.4,
                         backgroundColor: COLOURS.black,
                         opacity,
                         marginHorizontal: 4,
                         borderRadius: 100,
-                      }}></Animated.View>
+                      }}
+                    ></Animated.View>
                   );
                 })
               : null}
@@ -197,13 +200,15 @@ const ProductInfo = ({route, navigation}) => {
           style={{
             paddingHorizontal: 16,
             marginTop: 6,
-          }}>
+          }}
+        >
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
+              flexDirection: "row",
+              alignItems: "center",
               marginVertical: 14,
-            }}>
+            }}
+          >
             <Entypo
               name="shopping-cart"
               style={{
@@ -216,26 +221,29 @@ const ProductInfo = ({route, navigation}) => {
               style={{
                 fontSize: 12,
                 color: COLOURS.black,
-              }}>
+              }}
+            >
               Shopping
             </Text>
           </View>
           <View
             style={{
-              flexDirection: 'row',
+              flexDirection: "row",
               marginVertical: 4,
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            }}>
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Text
               style={{
                 fontSize: 24,
-                fontWeight: '600',
+                fontWeight: "600",
                 letterSpacing: 0.5,
                 marginVertical: 4,
                 color: COLOURS.black,
-                maxWidth: '84%',
-              }}>
+                maxWidth: "84%",
+              }}
+            >
               {product.productName}
             </Text>
             <Ionicons
@@ -253,42 +261,46 @@ const ProductInfo = ({route, navigation}) => {
             style={{
               fontSize: 12,
               color: COLOURS.black,
-              fontWeight: '400',
+              fontWeight: "400",
               letterSpacing: 1,
               opacity: 0.5,
               lineHeight: 20,
-              maxWidth: '85%',
+              maxWidth: "85%",
               maxHeight: 44,
               marginBottom: 18,
-            }}>
+            }}
+          >
             {product.description}
           </Text>
           <View
             style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
               marginVertical: 14,
               borderBottomColor: COLOURS.backgroundLight,
               borderBottomWidth: 1,
               paddingBottom: 20,
-            }}>
+            }}
+          >
             <View
               style={{
-                flexDirection: 'row',
-                width: '80%',
-                alignItems: 'center',
-              }}>
+                flexDirection: "row",
+                width: "80%",
+                alignItems: "center",
+              }}
+            >
               <View
                 style={{
                   color: COLOURS.blue,
                   backgroundColor: COLOURS.backgroundLight,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  justifyContent: "center",
                   padding: 12,
                   borderRadius: 100,
                   marginRight: 10,
-                }}>
+                }}
+              >
                 <Entypo
                   name="location-pin"
                   style={{
@@ -297,7 +309,7 @@ const ProductInfo = ({route, navigation}) => {
                   }}
                 />
               </View>
-              <Text> Rustaveli Ave 57,{'\n'}17-001, Batume</Text>
+              <Text> Rustaveli Ave 57,{"\n"}17-001, Batume</Text>
             </View>
             <Entypo
               name="chevron-right"
@@ -310,15 +322,17 @@ const ProductInfo = ({route, navigation}) => {
           <View
             style={{
               paddingHorizontal: 16,
-            }}>
+            }}
+          >
             <Text
               style={{
                 fontSize: 18,
-                fontWeight: '500',
-                maxWidth: '85%',
+                fontWeight: "500",
+                maxWidth: "85%",
                 color: COLOURS.black,
                 marginBottom: 4,
-              }}>
+              }}
+            >
               &#8377; {product.productPrice}.00
             </Text>
             <Text>
@@ -331,32 +345,35 @@ const ProductInfo = ({route, navigation}) => {
 
       <View
         style={{
-          position: 'absolute',
+          position: "absolute",
           bottom: 10,
-          height: '8%',
-          width: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+          height: "8%",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <TouchableOpacity
           onPress={() => (product.isAvailable ? addToCart(product.id) : null)}
           style={{
-            width: '86%',
-            height: '90%',
+            width: "86%",
+            height: "90%",
             backgroundColor: COLOURS.blue,
             borderRadius: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <Text
             style={{
               fontSize: 12,
-              fontWeight: '500',
+              fontWeight: "500",
               letterSpacing: 1,
               color: COLOURS.white,
-              textTransform: 'uppercase',
-            }}>
-            {product.isAvailable ? 'Add to cart' : 'Not Avialable'}
+              textTransform: "uppercase",
+            }}
+          >
+            {product.isAvailable ? "Add to cart" : "Not Avialable"}
           </Text>
         </TouchableOpacity>
       </View>
