@@ -8,20 +8,15 @@ import {
 } from "react-native";
 import { COLOURS } from "../database/Database";
 
-function Welcome({ navigation }) {
+function AccountCreated({ navigation }) {
   return (
     <ImageBackground
       style={styles.background}
-      source={require("../database/images/LogoBackground.png")}
+      source={require("../database/images/AccountCreated.png")}
     >
       <View style={styles.loginButton}>
-        <TouchableOpacity onPress={() => navigation.navigate("Daftar")}>
-          <Text style={styles.textButton}>DAFTAR</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.loginButton}>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <Text style={styles.textButton}>MASUK</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <Text style={styles.textButton}>Selanjutnya</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
@@ -31,7 +26,7 @@ function Welcome({ navigation }) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-end",
     alignItems: "center",
   },
   loginButton: {
@@ -42,6 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOURS.backgroundLight,
     borderRadius: 40,
     margin: 20,
+    bottom: "30%",
   },
   textButton: {
     color: COLOURS.black,
@@ -49,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Welcome;
+export default AccountCreated;
