@@ -9,6 +9,7 @@ import Welcome from "./components/screens/Welcome";
 import Daftar from "./components/screens/Daftar";
 import Login from "./components/screens/Login";
 import AccountCreated from "./components/screens/AccountCreated";
+import Location from "./components/screens/Location";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="ProductInfo" component={ProductInfo} />
+        <Stack.Screen name="Location" component={Location} />
       </Stack.Navigator>
     </NavigationContainer>
   );

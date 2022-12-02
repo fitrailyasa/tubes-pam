@@ -311,13 +311,16 @@ const ProductInfo = ({ route, navigation }) => {
               </View>
               <Text> Rustaveli Ave 57,{"\n"}17-001, Batume</Text>
             </View>
-            <Entypo
-              name="chevron-right"
-              style={{
-                fontSize: 22,
-                color: COLOURS.backgroundDark,
-              }}
-            />
+            <TouchableOpacity onPress={() => navigation.navigate("Location")}>
+              <Entypo
+                name="chevron-right"
+                style={{
+                  fontSize: 22,
+                  color: COLOURS.backgroundDark,
+                }}
+              />
+            </TouchableOpacity>
+
           </View>
           <View
             style={{
@@ -373,7 +376,7 @@ const ProductInfo = ({ route, navigation }) => {
               textTransform: "uppercase",
             }}
           >
-            {product.isAvailable ? "Add to cart" : "Not Avialable"}
+            {product.isAvailable ? "Add to cart" : "Not Available"}
           </Text>
         </TouchableOpacity>
       </View>
