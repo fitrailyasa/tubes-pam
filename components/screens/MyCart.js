@@ -62,7 +62,7 @@ const MyCart = ({navigation}) => {
       let array = itemArray;
       for (let index = 0; index < array.length; index++) {
         if (array[index] == id) {
-          array.splice(index, 1);
+          array.slice(index, 1);
         }
 
         await AsyncStorage.setItem('cartItems', JSON.stringify(array));
@@ -148,11 +148,7 @@ const MyCart = ({navigation}) => {
                   maxWidth: '85%',
                   marginRight: 4,
                 }}>
-                &#8377;{data.productPrice}
-              </Text>
-              <Text>
-                (~&#8377;
-                {data.productPrice + data.productPrice / 20})
+                Rp{data.productPrice}
               </Text>
             </View>
           </View>
@@ -463,7 +459,7 @@ const MyCart = ({navigation}) => {
                   color: COLOURS.black,
                   opacity: 0.8,
                 }}>
-                &#8377;{total}.00
+                Rp{total}.00
               </Text>
             </View>
             <View
@@ -490,7 +486,7 @@ const MyCart = ({navigation}) => {
                   color: COLOURS.black,
                   opacity: 0.8,
                 }}>
-                &#8377;{total / 20}
+                Rp{total / 20}
               </Text>
             </View>
             <View
@@ -515,7 +511,7 @@ const MyCart = ({navigation}) => {
                   fontWeight: '500',
                   color: COLOURS.black,
                 }}>
-                &#8377;{total + total / 20}
+                Rp{total + total / 20}
               </Text>
             </View>
           </View>
@@ -549,7 +545,7 @@ const MyCart = ({navigation}) => {
               color: COLOURS.white,
               textTransform: 'uppercase',
             }}>
-            CHECKOUT (&#8377;{total + total / 20} )
+            CHECKOUT (Rp{total + total / 20} )
           </Text>
         </TouchableOpacity>
       </View>

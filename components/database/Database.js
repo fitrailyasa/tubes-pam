@@ -1,14 +1,10 @@
 export const COLOURS = {
-  white: "#00203F", //warna background
-  black: "#F2F3F4", // warna putih
-  green: "#00AC76",
+  white: "#FFFFFF",
+  black: "#000000",
+  green: "#00CF7E",
   red: "#C04345",
-  blue: "#ADEFD1", // warna ijo-biru
-  backgroundLight: "#F0F0F3", // warna putih
-  backgroundMedium: "#B9B9B9",  // warna abu-abu
-  backgroundDark: "#777777", // warna abu-abu
-  backgroundDarker: "#F0F0F3", // warna putih
-  backgroundDarkest: "black", // warna hitam
+  backgroundLight: "#ADEFD1",
+  backgroundDark: "#00203F",
 };
 
 export const Items = [

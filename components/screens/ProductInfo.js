@@ -109,7 +109,7 @@ const ProductInfo = ({ route, navigation }) => {
       style={{
         width: "100%",
         height: "100%",
-        backgroundColor: COLOURS.white,
+        backgroundColor: COLOURS.backgroundDark,
         position: "relative",
       }}
     >
@@ -143,7 +143,7 @@ const ProductInfo = ({ route, navigation }) => {
                   fontSize: 18,
                   color: COLOURS.backgroundDark,
                   padding: 12,
-                  backgroundColor: COLOURS.white,
+                  backgroundColor: COLOURS.backgroundLight,
                   borderRadius: 10,
                 }}
               />
@@ -185,7 +185,7 @@ const ProductInfo = ({ route, navigation }) => {
                       style={{
                         width: "16%",
                         height: 2.4,
-                        backgroundColor: COLOURS.black,
+                        backgroundColor: COLOURS.backgroundDark,
                         opacity,
                         marginHorizontal: 4,
                         borderRadius: 100,
@@ -213,14 +213,14 @@ const ProductInfo = ({ route, navigation }) => {
               name="shopping-cart"
               style={{
                 fontSize: 18,
-                color: COLOURS.blue,
+                color: COLOURS.white,
                 marginRight: 6,
               }}
             />
             <Text
               style={{
                 fontSize: 12,
-                color: COLOURS.black,
+                color: COLOURS.white,
               }}
             >
               Shopping
@@ -240,7 +240,7 @@ const ProductInfo = ({ route, navigation }) => {
                 fontWeight: "600",
                 letterSpacing: 0.5,
                 marginVertical: 4,
-                color: COLOURS.black,
+                color: COLOURS.white,
                 maxWidth: "84%",
               }}
             >
@@ -250,8 +250,8 @@ const ProductInfo = ({ route, navigation }) => {
               name="link-outline"
               style={{
                 fontSize: 24,
-                color: COLOURS.blue,
-                backgroundColor: COLOURS.blue + 10,
+                color: COLOURS.backgroundDark,
+                backgroundColor: COLOURS.backgroundLight,
                 padding: 8,
                 borderRadius: 100,
               }}
@@ -260,7 +260,7 @@ const ProductInfo = ({ route, navigation }) => {
           <Text
             style={{
               fontSize: 12,
-              color: COLOURS.black,
+              color: COLOURS.white,
               fontWeight: "400",
               letterSpacing: 1,
               opacity: 0.5,
@@ -305,18 +305,18 @@ const ProductInfo = ({ route, navigation }) => {
                   name="location-pin"
                   style={{
                     fontSize: 16,
-                    color: COLOURS.blue,
+                    color: COLOURS.backgroundDark,
                   }}
                 />
               </View>
-              <Text> Rustaveli Ave 57,{"\n"}17-001, Batume</Text>
+              <Text style={{color:COLOURS.white}}> Rustaveli Ave 57,{"\n"}17-001, Batume</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Location")}>
               <Entypo
                 name="chevron-right"
                 style={{
                   fontSize: 22,
-                  color: COLOURS.backgroundDark,
+                  color: COLOURS.white,
                 }}
               />
             </TouchableOpacity>
@@ -332,15 +332,11 @@ const ProductInfo = ({ route, navigation }) => {
                 fontSize: 18,
                 fontWeight: "500",
                 maxWidth: "85%",
-                color: COLOURS.black,
+                color: COLOURS.white,
                 marginBottom: 4,
               }}
             >
               &#8377; {product.productPrice}.00
-            </Text>
-            <Text>
-              Tax Rate 2%~ &#8377;{product.productPrice / 20} (&#8377;
-              {product.productPrice + product.productPrice / 20})
             </Text>
           </View>
         </View>
@@ -361,7 +357,7 @@ const ProductInfo = ({ route, navigation }) => {
           style={{
             width: "86%",
             height: "90%",
-            backgroundColor: COLOURS.blue,
+            backgroundColor: COLOURS.backgroundLight,
             borderRadius: 20,
             justifyContent: "center",
             alignItems: "center",
@@ -372,7 +368,7 @@ const ProductInfo = ({ route, navigation }) => {
               fontSize: 12,
               fontWeight: "500",
               letterSpacing: 1,
-              color: COLOURS.white,
+              color: COLOURS.backgroundDark,
               textTransform: "uppercase",
             }}
           >
