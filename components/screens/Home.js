@@ -134,7 +134,7 @@ const Home = ({ navigation }) => {
                   color: COLOURS.green,
                 }}
               >
-                Available
+                Tersedia
               </Text>
             </View>
           ) : (
@@ -158,7 +158,7 @@ const Home = ({ navigation }) => {
                   color: COLOURS.red,
                 }}
               >
-                Unavailable
+                Tidak Tersedia
               </Text>
             </View>
           )
@@ -194,11 +194,11 @@ const Home = ({ navigation }) => {
           }}
         >
           <TouchableOpacity>
-            <Entypo
-              name="shopping-bag"
+            <MaterialCommunityIcons
+              name="contacts"
               style={{
                 fontSize: 18,
-                color: COLOURS.backgroundMedium,
+                color: COLOURS.backgroundlight,
                 padding: 12,
                 borderRadius: 10,
                 backgroundColor: COLOURS.backgroundLight,
@@ -214,7 +214,7 @@ const Home = ({ navigation }) => {
                 padding: 12,
                 borderRadius: 10,
                 borderWidth: 1,
-                borderColor: COLOURS.backgroundLight,
+                backgroundColor: COLOURS.backgroundLight,
               }}
             />
           </TouchableOpacity>
@@ -274,7 +274,7 @@ const Home = ({ navigation }) => {
                   letterSpacing: 1,
                 }}
               >
-                Products
+                Elektronik
               </Text>
               <Text
                 style={{
@@ -337,7 +337,7 @@ const Home = ({ navigation }) => {
                   letterSpacing: 1,
                 }}
               >
-                Accessories
+                Fashion
               </Text>
               <Text
                 style={{
@@ -348,7 +348,7 @@ const Home = ({ navigation }) => {
                   marginLeft: 10,
                 }}
               >
-                78
+                19
               </Text>
             </View>
             <Text

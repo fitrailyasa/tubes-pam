@@ -15,6 +15,7 @@ import { COLOURS, Items } from "../database/Database";
 import Entypo from "react-native-vector-icons/Entypo";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const ProductInfo = ({ route, navigation }) => {
   const { productID } = route.params;
@@ -301,15 +302,15 @@ const ProductInfo = ({ route, navigation }) => {
                   marginRight: 10,
                 }}
               >
-                <Entypo
-                  name="location-pin"
+                <MaterialCommunityIcons
+                  name="truck-delivery-outline"
                   style={{
                     fontSize: 16,
                     color: COLOURS.backgroundDark,
                   }}
                 />
               </View>
-              <Text style={{color:COLOURS.white}}> Rustaveli Ave 57,{"\n"}17-001, Batume</Text>
+              <Text style={{color:COLOURS.white}}>Kosan Abang Adek, Sukarame{"\n"}Bandar Lampung</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Location")}>
               <Entypo
@@ -336,7 +337,7 @@ const ProductInfo = ({ route, navigation }) => {
                 marginBottom: 4,
               }}
             >
-              &#8377; {product.productPrice}.00
+              Rp {product.productPrice}
             </Text>
           </View>
         </View>
@@ -372,7 +373,7 @@ const ProductInfo = ({ route, navigation }) => {
               textTransform: "uppercase",
             }}
           >
-            {product.isAvailable ? "Add to cart" : "Not Available"}
+            {product.isAvailable ? "Tambahkan ke Keranjang" : "Not Available"}
           </Text>
         </TouchableOpacity>
       </View>
