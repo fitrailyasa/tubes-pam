@@ -5,7 +5,6 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
-  ToastAndroid,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {COLOURS, Items} from '../database/Database';
@@ -171,13 +170,15 @@ const MyCart = ({navigation}) => {
                   borderColor: COLOURS.white,
                   opacity: 0.5,
                 }}>
+                <TouchableOpacity>
                 <MaterialCommunityIcons
-                  name="minus"
-                  style={{
-                    fontSize: 16,
-                    color: COLOURS.white,
-                  }}
-                />
+                    name="minus"
+                    style={{
+                      fontSize: 16,
+                      color: COLOURS.white,
+                    }}
+                  />
+                </TouchableOpacity>
               </View>
               <Text style={{
                     color: COLOURS.white,
@@ -191,13 +192,15 @@ const MyCart = ({navigation}) => {
                   borderColor: COLOURS.white,
                   opacity: 0.5,
                 }}>
+                <TouchableOpacity>
                 <MaterialCommunityIcons
-                  name="plus"
-                  style={{
-                    fontSize: 16,
-                    color: COLOURS.white,
-                  }}
-                />
+                    name="plus"
+                    style={{
+                      fontSize: 16,
+                      color: COLOURS.white,
+                    }}
+                  />
+                </TouchableOpacity>
               </View>
             </View>
             <TouchableOpacity onPress={() => removeItemFromCart(data.id)}>
