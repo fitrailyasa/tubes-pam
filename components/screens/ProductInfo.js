@@ -310,7 +310,7 @@ const ProductInfo = ({ route, navigation }) => {
                   }}
                 />
               </View>
-              <Text style={{color:COLOURS.white}}>Kosan Abang Adek, Sukarame{"\n"}Bandar Lampung</Text>
+              <Text style={{color:COLOURS.white}}>Institut Teknologi Sumatera{"\n"}Lampung Selatan</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate("Location")}>
               <Entypo

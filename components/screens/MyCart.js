@@ -10,6 +10,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {COLOURS, Items} from '../database/Database';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Entypo from "react-native-vector-icons/Entypo";
 
 const MyCart = ({navigation}) => {
   const [product, setProduct] = useState();
@@ -62,7 +63,7 @@ const MyCart = ({navigation}) => {
       let array = itemArray;
       for (let index = 0; index < array.length; index++) {
         if (array[index] == id) {
-          array.slice(index, 1);
+          array.splice(index, 1);
         }
 
         await AsyncStorage.setItem('cartItems', JSON.stringify(array));
@@ -79,10 +80,7 @@ const MyCart = ({navigation}) => {
     } catch (error) {
       return error;
     }
-
-    ToastAndroid.show('Items will be Deliverd SOON!', ToastAndroid.SHORT);
-
-    navigation.navigate('Home');
+    navigation.navigate('PembayaranBerhasil');
   };
 
   const renderProducts = (data, index) => {
@@ -328,7 +326,7 @@ const MyCart = ({navigation}) => {
                       color: COLOURS.white,
                       fontWeight: '500',
                     }}>
-                    Kosan Abang Adek, Sukarame
+                    Institut Teknologi Sumatera
                   </Text>
                   <Text
                     style={{
@@ -338,14 +336,19 @@ const MyCart = ({navigation}) => {
                       lineHeight: 20,
                       opacity: 0.5,
                     }}>
-                    Bandar Lampung
+                    Lampung Selatan
                   </Text>
                 </View>
               </View>
-              <MaterialCommunityIcons
+              <TouchableOpacity onPress={() => navigation.navigate("Location")}>
+              <Entypo
                 name="chevron-right"
-                style={{fontSize: 22, color: COLOURS.white}}
+                style={{
+                  fontSize: 22,
+                  color: COLOURS.white,
+                }}
               />
+            </TouchableOpacity>
             </View>
           </View>
           <View

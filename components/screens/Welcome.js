@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  ImageBackground,
+  Image,
   StyleSheet,
   View,
   Text,
@@ -10,10 +10,11 @@ import { COLOURS } from "../database/Database";
 
 function Welcome({ navigation }) {
   return (
-    <ImageBackground
-      style={styles.background}
-      source={require("../database/images/LogoBackground.png")}
-    >
+    <View style={styles.background}>
+      <Image 
+        source={require("../database/images/Thenia.png")}
+        style={styles.logo}
+      />
       <View style={styles.loginButton}>
         <TouchableOpacity onPress={() => navigation.navigate("Daftar")}>
           <Text style={styles.textButton}>DAFTAR</Text>
@@ -24,7 +25,7 @@ function Welcome({ navigation }) {
           <Text style={styles.textButton}>MASUK</Text>
         </TouchableOpacity>
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
@@ -33,6 +34,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor:COLOURS.backgroundDark
+  },
+  logo: {
+    bottom:"5%",
   },
   loginButton: {
     width: "70%",
