@@ -12,6 +12,7 @@ import AccountCreated from "./components/screens/AccountCreated";
 import Location from "./components/screens/Location";
 import PembayaranSukses from "./components/screens/PembayaranSukses";
 import PembayaranGagal from "./components/screens/PembayaranGagal";
+import Profile from "./components/screens/Profile";
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -33,6 +34,7 @@ const App = () => {
         <Stack.Screen name="Location" component={Location} />
         <Stack.Screen name="PembayaranBerhasil" component={PembayaranSukses} />
         <Stack.Screen name="PembayaranGagal" component={PembayaranGagal} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );
