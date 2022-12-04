@@ -7,9 +7,9 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/TheniaSplash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#00203F"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
