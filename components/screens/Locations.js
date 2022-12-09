@@ -1,30 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import MapView, { Marker } from 'react-native-maps';
 import { 
 StyleSheet,
-SafeAreaView,
 View,
 TouchableOpacity,
 Text,
+Platform,
 } from 'react-native';
 import Entypo from "react-native-vector-icons/Entypo";
 import { COLOURS } from "../database/Database";
+import * as Location from "expo-location";
 
-export default function Location({navigation}) {
+export default function Locations({navigation}) {
+  const [location, setLocation] = useState(Object);
+  const [address, setAddress] = useState(Object);
+  useEffect(() => {
+    (async() => {
+      const {status} = await Location.requestForegroundPermissionsAsync();
+      if(status !== 'granted'){
+        console.log("Sorry, Permission Not Granted");
+      }
+      if(status == 'granted'){
+        console.log("Permission Granted!");
+      }
+      const location = await Location.getCurrentPositionAsync({accuracy: Location.Accuracy.Highest, maximumAge: 10000});
+      setLocation(location.coords);
+
+      let address = await Location.reverseGeocodeAsync(location.coords);
+      setAddress(location.coords);
+      console.log(address);
+    })();
+  },[location.coords])
   return (
     
     <View style={styles.container}>
         <MapView style={styles.map} 
-            initialRegion={{
-                latitude: -5.3583,
-                longitude: 105.3148,
+            region={{
+                latitude: location.latitude,
+                longitude: location.longitude,
                 latitudeDelta: 0.0030,
                 longitudeDelta: 0.0030,}}>
 
             <Marker
                 coordinate={{
-                    latitude: -5.3583,
-                    longitude: 105.3148,
+                    latitude: location.latitude ? location.latitude : 0,
+                    longitude: location.longitude ? location.longitude : 0,
                 }}
             />
         </MapView>
@@ -44,7 +64,7 @@ export default function Location({navigation}) {
                     }}
                 />
             </TouchableOpacity>
-            <Text style={styles.teks1}>{`Institut Teknologi\nSumatera`}</Text>
+            <Text style={styles.teks1}>{`Institut Teknologi Sumatera`}</Text>
             <Text style={styles.teks2}>{`Jl. Terusan Ryacudu, Way Huwi, Kec. Jati Agung,\nKabupaten Lampung Selatan, Lampung 35365`}</Text>
         
             <View style={styles.pilihalamatButton}>

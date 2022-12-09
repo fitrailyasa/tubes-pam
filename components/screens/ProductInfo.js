@@ -312,7 +312,7 @@ const ProductInfo = ({ route, navigation }) => {
               </View>
               <Text style={{color:COLOURS.white}}>Institut Teknologi Sumatera{"\n"}Lampung Selatan</Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate("Location")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Locations")}>
               <Entypo
                 name="chevron-right"
                 style={{

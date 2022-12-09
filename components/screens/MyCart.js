@@ -343,7 +343,7 @@ const MyCart = ({navigation}) => {
                   </Text>
                 </View>
               </View>
-              <TouchableOpacity onPress={() => navigation.navigate("Location")}>
+              <TouchableOpacity onPress={() => navigation.navigate("Locations")}>
               <Entypo
                 name="chevron-right"
                 style={{

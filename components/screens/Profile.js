@@ -50,13 +50,14 @@ const styles = StyleSheet.create({
   },
   RectButtonBack:{
     flexDirection: "row",
-    width:"8%",
+    width:"10%",
     backgroundColor: COLOURS.backgroundLight,
-    top:"18%",
+    top:"15%",
     right:"18%",
-    height:"4%",
+    height:"5%",
     alignItems:"center",
-    justifyContent: "center"
+    justifyContent: "center",
+    borderRadius:10,
   },
   RectButtonList: {
     flexDirection: "row",

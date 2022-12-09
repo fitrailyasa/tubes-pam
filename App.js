@@ -9,7 +9,7 @@ import Welcome from "./components/screens/Welcome";
 import Daftar from "./components/screens/Daftar";
 import Login from "./components/screens/Login";
 import AccountCreated from "./components/screens/AccountCreated";
-import Location from "./components/screens/Location";
+import Locations from "./components/screens/Locations";
 import PembayaranSukses from "./components/screens/PembayaranSukses";
 import PembayaranGagal from "./components/screens/PembayaranGagal";
 import Profile from "./components/screens/Profile";
@@ -31,7 +31,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyCart" component={MyCart} />
         <Stack.Screen name="ProductInfo" component={ProductInfo} />
-        <Stack.Screen name="Location" component={Location} />
+        <Stack.Screen name="Locations" component={Locations} />
         <Stack.Screen name="PembayaranBerhasil" component={PembayaranSukses} />
         <Stack.Screen name="PembayaranGagal" component={PembayaranGagal} />
         <Stack.Screen name="Profile" component={Profile} />
