@@ -2,8 +2,22 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { COLOURS } from "../database/Database";
+import { auth } from '../../firebase';
+import { useNavigation } from '@react-navigation/core';
 
-export default function Profile({navigation}) {
+export default function Profile() {
+
+const navigation = useNavigation()
+
+  const handleSignOut = () => {
+    auth
+    .signOut()
+    .then(() => {
+      navigation.replace("Welcome")
+    })
+    .catch(error => alert(error.message))
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -25,7 +39,7 @@ export default function Profile({navigation}) {
 
       <Text style={styles.Header}>Akun</Text>
       <TouchableOpacity 
-        onPress={() => navigation.navigate("Welcome")}
+        onPress={handleSignOut}
         style={styles.RectButtonList}>
         <Text style={styles.text}>Keluar</Text>
         <Entypo name="chevron-right" size={24} color="white" />

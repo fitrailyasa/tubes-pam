@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -8,8 +9,37 @@ import {
   TextInput,
 } from "react-native";
 import { COLOURS } from "../database/Database";
+import { auth } from "../../firebase";
+import { useNavigation } from "@react-navigation/core";
 
-function Daftar({ navigation }) {
+
+
+function Daftar() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigation = useNavigation()
+
+  useEffect (() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.navigate("AccountCreated")
+      }
+    })
+
+    return unsubscribe
+  }, [])
+
+  const handleSignUp = () => {
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+        const user = userCredentials.user;
+        console.log('Registered with:', user.email);
+      })
+      .catch(error => alert(error.message))
+  };
+
   return (
     <ImageBackground
       style={styles.background}
@@ -22,17 +52,22 @@ function Daftar({ navigation }) {
       />
       <TextInput
         style={styles.input}
-        placeholder="No. Handphone atau Email"
+        placeholder="Email"
         placeholderTextColor="white"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Kata Sandi"
         placeholderTextColor="white"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
       />
 
       <View style={styles.loginButton}>
-        <TouchableOpacity onPress={() => navigation.navigate("AccountCreated")}>
+        <TouchableOpacity onPress={handleSignUp} >
           <Text style={styles.textButton}>DAFTAR</Text>
         </TouchableOpacity>
       </View>
