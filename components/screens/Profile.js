@@ -32,10 +32,10 @@ const navigation = useNavigation()
             style={styles.userImage}
             source={{uri: "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/10/19040430/Mengenal-Faktor-yang-Mempengaruhi-Pertumbuhan-Kucing.jpg" }}
           />
-      <Text style= {styles.name}> Sumbul</Text>
+      <Text style= {styles.name}> User </Text>
 
       <Text style={styles.title}>+6289898989</Text>
-      <Text style={styles.title}>m.sumbul@mail.com</Text>
+      <Text style={styles.title}>{auth.currentUser?.email}</Text>
 
       <Text style={styles.Header}>Akun</Text>
       <TouchableOpacity 
