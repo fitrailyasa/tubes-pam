@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   ImageBackground,
   StyleSheet,
@@ -8,8 +8,35 @@ import {
   TextInput,
 } from "react-native";
 import { COLOURS } from "../database/Database";
+import { auth } from "../../firebase";
+import { useNavigation } from "@react-navigation/core";
 
-function Login({ navigation }) {
+function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigation = useNavigation()
+
+  useEffect (() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.repalce("Home")
+      }
+    })
+
+    return unsubscribe
+  }, [])
+
+  const handleLogIn = () => {
+    auth
+    .signInWithEmailAndPassword(email, password)
+    .then(userCredentials => {
+      const user = userCredentials.user;
+      console.log('Logged In with:', user.email);
+    })
+    .catch(error => alert(error.message))
+  }
+
   return (
     <ImageBackground
       style={styles.background}
@@ -17,22 +44,27 @@ function Login({ navigation }) {
     >
       <TextInput
         style={styles.input}
-        placeholder="No. Handphone atau Email"
+        placeholder="Email"
         placeholderTextColor="white"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Kata Sandi"
         placeholderTextColor="white"
+        secureTextEntry
+        value={password}
+        onChangeText={(text) => setPassword(text)}
       />
 
       <View style={styles.loginButton}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity onPress={handleLogIn}>
           <Text style={styles.textButton}>MASUK</Text>
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.textDefault1}>Sudah memiliki akun?</Text>
+      <Text style={styles.textDefault1}>Belum memiliki akun?</Text>
 
       <TouchableOpacity onPress={() => navigation.navigate("Daftar")}>
         <Text style={styles.textDefault2}>DAFTAR</Text>
