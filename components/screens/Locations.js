@@ -6,6 +6,7 @@ View,
 TouchableOpacity,
 Text,
 Platform,
+TextInput,
 } from 'react-native';
 import Entypo from "react-native-vector-icons/Entypo";
 import { COLOURS } from "../database/Database";
@@ -64,8 +65,15 @@ export default function Locations({navigation}) {
                     }}
                 />
             </TouchableOpacity>
-            <Text style={styles.teks1}>{`Institut Teknologi Sumatera`}</Text>
-            <Text style={styles.teks2}>{`Jl. Terusan Ryacudu, Way Huwi, Kec. Jati Agung,\nKabupaten Lampung Selatan, Lampung 35365`}</Text>
+            <Text style={styles.teks1}>{'Alamat Anda'}</Text>
+            <TextInput
+              style={styles.input}
+              multiline
+              numberOfLines={3}
+              placeholder ="Masukkan Alamat Anda"
+              placeholderTextColor="white"
+            />
+            
         
             <View style={styles.pilihalamatButton}>
                 <TouchableOpacity onPress={() => navigation.goBack("Home")}>
@@ -124,5 +132,16 @@ const styles = StyleSheet.create({
   textButton: {
     color: COLOURS.black,
     fontWeight: "bold",
+  },
+  input: {
+    alignSelf: 'center',
+    width: 350,
+    height: 100,
+    padding: 8,
+    margin: 10,
+    color: COLOURS.white,
+    borderRadius: 10,
+    borderColor: COLOURS.white,
+    borderWidth: 1,
   },
 });
