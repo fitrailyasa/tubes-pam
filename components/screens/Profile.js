@@ -100,9 +100,9 @@ const styles = StyleSheet.create({
   },
   Header:{
     color: COLOURS.white,
-    top:"11%",
+    top:"12%",
     fontSize: 25,
-    right:"30%"
+    right:"32%"
   },
   caption: {
     fontSize: 14,

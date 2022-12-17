@@ -14,7 +14,7 @@ import * as Location from "expo-location";
 
 export default function Locations({navigation}) {
   const [location, setLocation] = useState(Object);
-  const [address, setAddress] = useState(Object);
+
   useEffect(() => {
     (async() => {
       const {status} = await Location.requestForegroundPermissionsAsync();
@@ -26,12 +26,9 @@ export default function Locations({navigation}) {
       }
       const location = await Location.getCurrentPositionAsync({accuracy: Location.Accuracy.Highest, maximumAge: 10000});
       setLocation(location.coords);
-
-      let address = await Location.reverseGeocodeAsync(location.coords);
-      setAddress(location.coords);
-      console.log(address);
     })();
   },[location.coords])
+
   return (
     
     <View style={styles.container}>
@@ -54,7 +51,6 @@ export default function Locations({navigation}) {
                 <Entypo
                     name="chevron-left"
                     style={{
-                        width:"10%",
                         top:"2%",
                         left:"3%",
                         fontSize: 24,
@@ -73,8 +69,7 @@ export default function Locations({navigation}) {
               placeholder ="Masukkan Alamat Anda"
               placeholderTextColor="white"
             />
-            
-        
+
             <View style={styles.pilihalamatButton}>
                 <TouchableOpacity onPress={() => navigation.goBack("Home")}>
                     <Text style={styles.textButton}>Pilih Alamat</Text>
@@ -121,7 +116,7 @@ const styles = StyleSheet.create({
   pilihalamatButton: {
     width: "70%",
     height: "15%",
-    top:"10%",
+    top:"0%",
     left:"9.5%",
     justifyContent: "center",
     alignItems: "center",
@@ -135,9 +130,9 @@ const styles = StyleSheet.create({
   },
   input: {
     alignSelf: 'center',
-    width: 350,
-    height: 100,
-    padding: 8,
+    width: "90%",
+    height: "30%",
+    padding: 12,
     margin: 10,
     color: COLOURS.white,
     borderRadius: 10,
