@@ -72,14 +72,6 @@ export default function Locations({navigation}) {
         snumber = p.streetNumber
         setSnumber(p.streetNumber)
       });
-      console.log(city);
-      console.log(district);
-      console.log(postalcode);
-      console.log(region);
-      console.log(subregion);
-      console.log(street);
-      console.log(snumber);
-
     })();
   },[location.coords])
 
