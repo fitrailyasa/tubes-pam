@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {COLOURS, Items} from '../database/Database';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from "react-native-vector-icons/Entypo";
+import {city, disctrict, postalcode, region, subregion, street, snumber} from './Locations';
 
 const MyCart = ({navigation}) => {
   const [product, setProduct] = useState();
@@ -146,7 +147,7 @@ const MyCart = ({navigation}) => {
                   marginRight: 4,
                   color: COLOURS.white,
                 }}>
-                Rp{data.productPrice}
+                Rp. {data.productPrice}
               </Text>
             </View>
           </View>
@@ -468,7 +469,7 @@ const MyCart = ({navigation}) => {
                   color: COLOURS.white,
                   opacity: 0.8,
                 }}>
-                Rp{total}
+                Rp. {total}
               </Text>
             </View>
             <View
@@ -495,7 +496,7 @@ const MyCart = ({navigation}) => {
                   color: COLOURS.white,
                   opacity: 0.8,
                 }}>
-                Rp{total / 20}
+                Rp. 30.000
               </Text>
             </View>
             <View
@@ -520,7 +521,7 @@ const MyCart = ({navigation}) => {
                   fontWeight: '500',
                   color: COLOURS.white,
                 }}>
-                Rp{total + total / 20}
+                Rp. {total + 30000}
               </Text>
             </View>
           </View>
@@ -554,7 +555,7 @@ const MyCart = ({navigation}) => {
               color: COLOURS.black,
               textTransform: 'uppercase',
             }}>
-            CHECKOUT (Rp{total + total / 20} )
+            CHECKOUT (Rp. {total + 30000} )
           </Text>
         </TouchableOpacity>
       </View>

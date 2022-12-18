@@ -12,7 +12,7 @@ export const Items = [
     id: 1,
     category: "product",
     productName: "Nintendo Switch V2 Console",
-    productPrice: 3.199,
+    productPrice: 3199000,
     description:
       "Nintendo switch console New Model V2 (Extra life Battery)",
     isOff: true,
@@ -29,7 +29,7 @@ export const Items = [
     id: 2,
     category: "product",
     productName: "Sony Playstation™ 5 Console",
-    productPrice: 9.799,
+    productPrice: 9799000,
     description:
       "The PS5™ console unleashes new gaming possibilities that you never anticipated",
     isOff: false,
@@ -45,7 +45,7 @@ export const Items = [
     id: 3,
     category: "accessory",
     productName: "Converse X DC Comic ",
-    productPrice: 1.999,
+    productPrice: 1999000,
     description:
       "Converse X DC Comic Chuck Taylor All Star 70 Hi",
     isOff: true,
@@ -62,7 +62,7 @@ export const Items = [
     id: 4,
     category: "accessory",
     productName: "1 Mid SE Take Flight",
-    productPrice: 3.399,
+    productPrice: 3399000,
     description:
       "Compared to the AJ1 High, the Air Jordan 1 Mid lacks many of the restrictions arbitrability placed by the public",
     isOff: false,
@@ -78,7 +78,7 @@ export const Items = [
     id: 5,
     category: "accessory",
     productName: "RITOM_W22 Regular Fit Sweater Dark Blue",
-    productPrice: 2.499,
+    productPrice: 2499000,
     description:
       "A sporty sweater in a straight fit by BOSS Menswear. Detailed with piping and a curved BOSS logo ",
     isOff: false,
@@ -94,7 +94,7 @@ export const Items = [
     id: 6,
     category: "accessory",
     productName: "Dressed Fox Patch Classic T-Shirt Black",
-    productPrice: 1.299,
+    productPrice: 1299000,
     description:
       "Short sleeve cotton t-shirt. Classic cut with Dressed Fox patch embroidered on the breast.",
     isOff: false,

@@ -169,7 +169,7 @@ const Home = ({ navigation }) => {
             color: COLOURS.white,
           }}
         >
-          Rp{data.productPrice}
+          Rp. {data.productPrice}
         </Text>
       </TouchableOpacity>
     );
